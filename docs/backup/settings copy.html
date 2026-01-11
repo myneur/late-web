@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - simply late!</title>
+    <meta name="description" content="Settings and troubleshooting for simply late! Garmin watch face.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@700&family=Karla:wght@400;700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/launcher_icon.png">
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">simply late!</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="https://apps.garmin.com/en-US/apps/3532114a-c93c-447a-bc8e-25999ea599fc" target="_blank">Download</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="weather-forecast.html">Weather</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container mt-2 text-center">
+            <h1>Weather forecast & Google Calendar Settings</h1>
+            <p>Open Garmin mobile Connect app and browse:</p>
+        </div>
+
+        <!-- Single Image Slider -->
+        <section class="section-flush">
+            <div class="container">
+                <div class="single-image-slider" id="settingsSlider">
+                    <button class="slider-nav prev" onclick="moveSlide(-1)">&#10094;</button>
+                    <img src="img/settings/Screenshot_20210402-202929.jpg" alt="Settings Screenshot 1" class="active">
+                    <img src="img/settings/Screenshot_20210402-202942.jpg" alt="Settings Screenshot 2">
+                    <img src="img/settings/Screenshot_20210402-202949.jpg" alt="Settings Screenshot 3">
+                    <img src="img/settings/Screenshot_20210402-202958.jpg" alt="Settings Screenshot 4">
+                    <img src="img/settings/Screenshot_20210402-203008.jpg" alt="Settings Screenshot 5">
+                    <img src="img/settings/Screenshot_20210402-203015.jpg" alt="Settings Screenshot 6">
+                    <img src="img/settings/Screenshot_20210402-203038.jpg" alt="Settings Screenshot 7">
+                    <img src="img/settings/Screenshot_20210402-203047.jpg" alt="Settings Screenshot 8">
+                    <button class="slider-nav next" onclick="moveSlide(1)">&#10095;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compatibility -->
+        <section class="section-compact text-center">
+            <div class="container">
+                <p>Compatibility: only powerful watches like Garmin Forerunner 245~945, fēnix 5-6, Venu, vívoactive 3-4</p>
+                <p><a href="garmin-compatibility.html" class="text-primary">See all compatible Garmin watches</a></p>
+            </div>
+        </section>
+
+        <!-- Google Calendar Info -->
+        <section class="bg-light">
+            <div class="container">
+                <h2 class="text-center mb-2">Google Calendar</h2>
+                <div class="grid-responsive-3">
+                    <div>
+                        <h3>5-60 min to update</h3>
+                        <p>The watch can access the internet only once in 5 mins. It takes 5 mins to load calendar events after you log-in.</p>
+                        <p>Then events are updated hourly to save battery life or after any interaction like a notification or display of a widget, activity or menu. That way a manual refresh can be triggered as well.</p>
+                        <p>The calendar updates first, followed by a weather forecast in 5 mins.</p>
+                    </div>
+                    <div>
+                        <h3>Battery consumption</h3>
+                        <p>In default settings, battery consumption is better than with original Garmin watch faces (according to our measurements).</p>
+                        <p>If you experienced a battery drain: didn't you coincidentally turn any sensor on (like a wrist heart-rate monitor)?</p>
+                    </div>
+                    <div>
+                        <h3>Strong flavor limitations</h3>
+                        <p>Strong dial flavor has a limited support of calendar events. It displays the events, but it is not rendered beautifully.</p>
+                        <p>It also won't fit multiple metrics at the same time.</p>
+                    </div>
+                    <div>
+                        <h3>Multiple calendars</h3>
+                        <p>When no calendar is set, the watch loads your primary calendar.</p>
+                        <p>You can add more calendars by pasting calendar IDs from Google Calendar settings to watch settings: "Calendars to show".</p>
+                        <p>The list of calendars must be separated by a space or comma.</p>
+                    </div>
+                    <div>
+                        <h3>Calendar colors</h3>
+                        <p>First calendar has the same color as the watch. Second has a different color. The third is grayish. Then it repeats.</p>
+                    </div>
+                    <div>
+                        <h3>Reporting problems & Known bug</h3>
+                        <p>The calendar might fail to load on some devices due to a Garmin bug.</p>
+                        <p>If you encounter it, please <a href="https://forums.garmin.com/developer/connect-iq/i/bug-reports/makewebrequest-bad-request-on-some-devices" target="_blank" class="text-primary">vote up here for Garmin to fix it soonish rather than laterish</a>.</p>
+                        <p>Or <a href="feedback-and-credits.html" class="text-primary">give us a feedback</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weather Forecast Info -->
+        <section>
+            <div class="container">
+                <h2 class="text-center mb-2">Weather forecast</h2>
+                <div class="grid-responsive-3">
+                    <div>
+                        <h3>How the forecast updates</h3>
+                        <p>The temperature shown is the current temperature at your location, together with a maximum or minimum temperature forecast for next 16 h.</p>
+                        <p>The current temperature can get outdated when there is no connection.</p>
+                        <p>Weather forecast is being updated hourly. If you use calendar as well, it updates 5 mins after the calendar.</p>
+                    </div>
+                    <div>
+                        <h3>Forecast does not update?</h3>
+                        <p>The forecast might fail to load in next occasions:</p>
+                        <ul>
+                            <li><strong>Connection:</strong> Occasionally, Garmin Bluetooth connection to your phone might drop without a notice. Check the watch is connected e. g. by changing a color of the watch in Garmin Mobile Connect.</li>
+                            <li><strong>Calendar:</strong> failing to load will prevent weather to load as well. If you have a calendar on, can you turn it off to check if it is not the culprit?</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Inaccurate forecast? Check location!</h3>
+                        <p>If your last activity ended in a different location than you are now, acquire a GPS signal by any activity outdoors to update your forecast to your location.</p>
+                        <p>Only newer watches like fēnix 6, Venu, vívoactive 3 or Forerunner 245 update their position from phone.</p>
+                        <p>Check if Garmin's weather widget forecast isn't wrong as well.</p>
+                        <p>Please consider <a href="https://forums.garmin.com/developer/connect-iq/i/bug-reports/makewebrequest-bad-request-on-some-devices" target="_blank" class="text-primary">voting up for Garmin to fix the related bug</a>.</p>
+                        <p>You can choose an accurate weather forecast Yr.no or Clear Outside. Yr.no is best in Europe. Try (more pessimistic) Clear Outside in other regions or if not satisfied.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Designed & created in Europe</p>
+            <ul class="footer-nav">
+                <li><a href="unsubscribe.html">Unsubscribe</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="feedback-and-credits.html">Feedback and Credits</a></li>
+                <li><a href="contribute.html">Contribute</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="ToS.html">Terms of Service</a></li>
+                <li><a href="garmin-compatibility.html">Garmin compatibility</a></li>
+            </ul>
+            <p class="copyright">&copy; 2026 simply late!</p>
+        </div>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('#settingsSlider img');
+
+        function moveSlide(n) {
+            slides[slideIndex].classList.remove('active');
+            slideIndex += n;
+            if (slideIndex >= slides.length) { slideIndex = 0; }
+            if (slideIndex < 0) { slideIndex = slides.length - 1; }
+            slides[slideIndex].classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
