@@ -171,7 +171,7 @@ section {
 header {
     background: #fff;
     padding: 20px 0;
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 1000;
 }
@@ -199,7 +199,7 @@ header {
     color: var(--color-primary);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
     .nav-links { display: none; } /* Simplified for now */
 }
 
@@ -446,7 +446,7 @@ footer {
     color: var(--color-text);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
     .menu-toggle {
         display: block;
     }
@@ -468,4 +468,15 @@ footer {
     .nav-links.active {
         display: flex;
     }
+}
+
+.nav-links a { font-size: 1.45rem; }
+
+.nav-links {
+    align-items: center;
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
 }
