@@ -109,9 +109,9 @@ section {
 }
 
 .section-flush {
-    background-color: var(--color-light-bg);
     padding: 0;
 }
+
 
 .bg-light {
     background-color: var(--color-light-bg);
@@ -479,4 +479,8 @@ footer {
 .nav-links li {
     display: flex;
     align-items: center;
+}
+
+#settings-hero {
+    background-color: var(--color-light-bg);
 }
