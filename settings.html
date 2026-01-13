@@ -152,67 +152,65 @@
         </div>
     </footer>
 
-    <script>
+
+</body>
+</html>    <script>
         let slideIndex = 0;
-        const slider = document.getElementById('settingsSlider');
-        const slides = slider.getElementsByTagName('img');
-        const prevBtn = document.querySelector('.slider-nav.prev');
-        const nextBtn = document.querySelector('.slider-nav.next');
+        const slider = document.getElementById("settingsSlider");
+        const slides = slider.getElementsByTagName("img");
+        const prevBtn = document.querySelector(".slider-nav.prev");
+        const nextBtn = document.querySelector(".slider-nav.next");
 
         function updateArrows() {
-            prevBtn.style.display = (slideIndex === 0) ? 'none' : 'flex';
-            nextBtn.style.display = (slideIndex === slides.length - 1) ? 'none' : 'flex';
+            if (!prevBtn || !nextBtn) return;
+            prevBtn.style.display = (slideIndex <= 0) ? "none" : "flex";
+            nextBtn.style.display = (slideIndex >= slides.length - 1) ? "none" : "flex";
         }
 
         function moveSlide(n) {
-            // Manual navigation scrolls, which triggers the scroll listener to update state
             let targetIndex = slideIndex + n;
-            if (targetIndex >= slides.length) { targetIndex = slides.length - 1; }
-            if (targetIndex < 0) { targetIndex = 0; }
+            if (targetIndex >= slides.length) targetIndex = slides.length - 1;
+            if (targetIndex < 0) targetIndex = 0;
             
-            const activeSlide = slides[targetIndex];
-            activeSlide.scrollIntoView({
-                behavior: 'smooth',
-                block: 'nearest',
-                inline: 'center'
+            slides[targetIndex].scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+                inline: "center"
             });
         }
 
-        // Scroll listener to update active state
-        slider.addEventListener('scroll', () => {
-            const containerCenter = slider.scrollLeft + (slider.clientWidth / 2);
-            let closestIndex = 0;
-            let minDistance = Infinity;
+        let scrollTimeout;
+        slider.addEventListener("scroll", () => {
+            if (scrollTimeout) clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const containerCenter = slider.scrollLeft + (slider.clientWidth / 2);
+                let closestIndex = 0;
+                let minDistance = Infinity;
 
-            for (let i = 0; i < slides.length; i++) {
-                const slide = slides[i];
-                const slideCenter = slide.offsetLeft + (slide.clientWidth / 2);
-                const distance = Math.abs(containerCenter - slideCenter);
+                for (let i = 0; i < slides.length; i++) {
+                    const slide = slides[i];
+                    const slideCenter = slide.offsetLeft + (slide.clientWidth / 2);
+                    const distance = Math.abs(containerCenter - slideCenter);
 
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    closestIndex = i;
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        closestIndex = i;
+                    }
                 }
-            }
 
-            if (closestIndex !== slideIndex) {
-                slides[slideIndex].classList.remove('active');
-                slideIndex = closestIndex;
-                slides[slideIndex].classList.add('active');
+                if (closestIndex !== slideIndex) {
+                    if(slides[slideIndex]) slides[slideIndex].classList.remove("active");
+                    slideIndex = closestIndex;
+                    if(slides[slideIndex]) slides[slideIndex].classList.add("active");
+                    updateArrows();
+                }
+            }, 50);
+        });
+        
+        window.addEventListener("DOMContentLoaded", () => {
+            if(slides.length > 0) {
+                slides[0].classList.add("active");
                 updateArrows();
             }
         });
-        
-        // Initialize
-        window.onload = function() {
-             // slides[slideIndex].scrollIntoView({
-                behavior: 'auto',
-                block: 'nearest',
-                inline: 'center'
-            });
-            updateArrows();
-        };
     </script>
-
-</body>
-</html>
